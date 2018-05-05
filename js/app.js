@@ -1,8 +1,21 @@
+// Add id to cards
+const cardLenght = document.querySelectorAll('.card').length;
+
+if( cardLenght != 0) {
+  for(let idCounter = 0; idCounter < cardLenght; idCounter++) {
+    $(".card.cursor-point"+idCounter).attr("id", idCounter);
+    $(".card.cursor-point"+idCounter).next().addClass("cursor-point"+(idCounter+1));
+    $(".card.cursor-point"+idCounter).removeClass("cursor-point"+idCounter);
+  }
+}
+
+$(".card").click( function() {
+  $(this).addClass("open show");
+});
+
 /*
  * Create a list that holds all of your cards
  */
-
-
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
