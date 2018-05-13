@@ -9,9 +9,64 @@ if( cardLenght != 0) {
   }
 }
 
-$(".card").click( function() {
-  $(this).addClass("open show");
+// Correct Guess
+let number = 0;
+let firstCard = "";
+let secondCard = "";
+
+document.addEventListener('click', function(event) {
+  console.log("number = " + number);
+  if (number < 2) {
+    number++;
+    if(number === 1) {
+      firstCard = event.target.childNodes[1];
+      console.log("firstCard " + firstCard);
+      firstId = document.getElementById(event.target.id);
+      console.log("firstId " + firstId);
+      $(firstId).addClass("open show");
+      console.log("addClass open show to firstId");
+    }
+    else {
+      secondCard = event.target.childNodes[1];
+      console.log("secondCard " + secondCard);
+      secondId = document.getElementById(event.target.id);
+      console.log("secondId " + secondId);
+      $(secondId).addClass("open show");
+      console.log("addClass open show to secondId");
+    }
+    if(firstCard !== "" && secondCard !== "") {
+      console.log("firstCard and secondCard are different");
+      if(firstCard.isEqualNode(secondCard)) {
+        console.log("firstCard and secondCard are equal");
+        console.log( "document.getElementById(event.target.id) " + document.getElementById(event.target.id));
+        $(firstId).addClass("match");
+        $(secondId).addClass("match");
+        $(firstId).removeClass("open show");
+        $(secondId).removeClass("open show");
+        console.log($("#proba").addClass("match"));
+        number = 0;
+        console.log("number = " + number);
+      }
+    }
+  }
 });
+
+console.log(document.getElementById("0").childNodes[1]);
+console.log(document.getElementById("1").childNodes[1]);
+console.log(document.getElementById("2").childNodes[1]);
+console.log(document.getElementById("3").childNodes[1]);
+console.log(document.getElementById("4").childNodes[1]);
+console.log(document.getElementById("5").childNodes[1]);
+console.log(document.getElementById("6").childNodes[1]);
+console.log(document.getElementById("7").childNodes[1]);
+console.log(document.getElementById("8").childNodes[1]);
+console.log(document.getElementById("9").childNodes[1]);
+console.log(document.getElementById("10").childNodes[1]);
+console.log(document.getElementById("11").childNodes[1]);
+console.log(document.getElementById("12").childNodes[1]);
+console.log(document.getElementById("13").childNodes[1]);
+console.log(document.getElementById("14").childNodes[1]);
+console.log(document.getElementById("15").childNodes[1]);
 
 /*
  * Create a list that holds all of your cards
