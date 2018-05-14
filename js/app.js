@@ -14,6 +14,13 @@ let number = 0;
 let firstCard = "";
 let secondCard = "";
 
+function turn(){
+  $(firstId).removeClass("open show");
+  $(secondId).removeClass("open show");
+  $(firstId).removeClass("wrong");
+  $(secondId).removeClass("wrong");
+}
+
 document.addEventListener('click', function(event) {
   console.log("number = " + number);
   if (number < 2) {
@@ -36,6 +43,15 @@ document.addEventListener('click', function(event) {
     }
     if(firstCard !== "" && secondCard !== "") {
       console.log("firstCard and secondCard are different");
+        if(!(firstCard.isEqualNode(secondCard))) {
+          $(firstId).addClass("wrong");
+          $(secondId).addClass("wrong");
+          setTimeout(turn , 500);
+          console.log("tu");
+          number = 0;
+          firstCard = "";
+          secondCard = "";
+      }
       if(firstCard.isEqualNode(secondCard)) {
         console.log("firstCard and secondCard are equal");
         console.log( "document.getElementById(event.target.id) " + document.getElementById(event.target.id));
@@ -45,6 +61,8 @@ document.addEventListener('click', function(event) {
         $(secondId).removeClass("open show");
         console.log($("#proba").addClass("match"));
         number = 0;
+        firstCard = "";
+        secondCard = "";
         console.log("number = " + number);
       }
     }
