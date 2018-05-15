@@ -13,6 +13,7 @@ if( cardLenght != 0) {
 let number = 0;
 let firstCard = "";
 let secondCard = "";
+let moveCounter = 0;
 
 function turn(){
   $(firstId).removeClass("open show");
@@ -21,7 +22,7 @@ function turn(){
   $(secondId).removeClass("wrong");
 }
 
-document.addEventListener('click', function(event) {
+$(".card").click(function() {
   console.log("number = " + number);
   if (number < 2) {
     number++;
@@ -47,10 +48,12 @@ document.addEventListener('click', function(event) {
           $(firstId).addClass("wrong");
           $(secondId).addClass("wrong");
           setTimeout(turn , 500);
-          console.log("tu");
           number = 0;
           firstCard = "";
           secondCard = "";
+          moveCounter++;
+          console.log(moveCounter);
+          $(".moves").html(moveCounter);
       }
       if(firstCard.isEqualNode(secondCard)) {
         console.log("firstCard and secondCard are equal");
@@ -64,9 +67,26 @@ document.addEventListener('click', function(event) {
         firstCard = "";
         secondCard = "";
         console.log("number = " + number);
+        moveCounter++;
+        console.log(moveCounter);
+        $(".moves").html(moveCounter);
       }
     }
   }
+});
+
+$(".restart").click(function() {
+    moveCounter = 0;
+    number = 0;
+    firstCard = "";
+    secondCard = "";
+    console.log("restart moveCounter = " + moveCounter);
+    console.log("restart number = " + number);
+    console.log("restart firstCard = " + firstCard);
+    console.log("restart secondCard = " + secondCard);
+    $(".moves").html(moveCounter);
+    $(".card").removeClass("open show");
+    $(".card").removeClass("match");
 });
 
 console.log(document.getElementById("0").childNodes[1]);
