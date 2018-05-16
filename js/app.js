@@ -42,19 +42,8 @@ $(".card").click(function() {
       $(secondId).addClass("open show");
       console.log("addClass open show to secondId");
     }
-    if(firstCard !== "" && secondCard !== "") {
-      console.log("firstCard and secondCard are different");
-        if(!(firstCard.isEqualNode(secondCard))) {
-          $(firstId).addClass("wrong");
-          $(secondId).addClass("wrong");
-          setTimeout(turn , 500);
-          number = 0;
-          firstCard = "";
-          secondCard = "";
-          moveCounter++;
-          console.log(moveCounter);
-          $(".moves").html(moveCounter);
-      }
+
+    if(number === 2) {
       if(firstCard.isEqualNode(secondCard)) {
         console.log("firstCard and secondCard are equal");
         console.log( "document.getElementById(event.target.id) " + document.getElementById(event.target.id));
@@ -70,6 +59,20 @@ $(".card").click(function() {
         moveCounter++;
         console.log(moveCounter);
         $(".moves").html(moveCounter);
+      }
+      else {
+        console.log("firstCard and secondCard are different");
+        if(!(firstCard.isEqualNode(secondCard))) {
+        $(firstId).addClass("wrong");
+        $(secondId).addClass("wrong");
+        setTimeout(turn , 500);
+        number = 0;
+        firstCard = "";
+        secondCard = "";
+        moveCounter++;
+        console.log(moveCounter);
+        $(".moves").html(moveCounter);
+        }
       }
     }
   }
