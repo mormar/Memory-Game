@@ -14,13 +14,24 @@ if( cardLenght != 0) {
     $(".card.cursor-point"+idCounter).attr("id", idCounter);
     $(".card.cursor-point"+idCounter).next().addClass("cursor-point"+(idCounter+1));
     $(".card.cursor-point"+idCounter).removeClass("cursor-point"+idCounter);
-     let addElement = document.getElementById(idCounter);
+     ////let addElement = document.getElementById(idCounter);
      console.log(document.getElementById(idCounter));
      //let coscos = addElement.childNodes[1];
      //console.log(addElement.childNodes[1]);
-     $(addElement).addClass(picture[idCounter]);
+     ////$(addElement).addClass(picture[idCounter]);
     //console.log(coscos);
+    //$(".addCard"+idCounter).next().addClass(picture[idCounter+1]);
+    //$(".addCard"+idCounter).removeClass(picture[idCounter]);
+
   }
+}
+for(let pictureCounter = 0; pictureCounter < cardLenght; pictureCounter++){
+  $(".addCard"+pictureCounter).attr("id",picture[pictureCounter]);
+  $(".addCard"+pictureCounter).addClass(picture[pictureCounter]);
+  $(".addCard"+pictureCounter).next().addClass("addCard"+(pictureCounter+1));
+  $(".addCard"+pictureCounter).removeClass("addCard"+pictureCounter);
+  //$(".addCard"+pictureCounter).removeClass(".addCard"+pictureCounter);
+  console.log(picture[pictureCounter]);
 }
 
 
@@ -43,7 +54,7 @@ $(".card").click(function() {
   if (number < 2) {
     number++;
     if(number === 1) {
-      firstCard = document.getElementsByClassName(".card");
+      firstCard = document.querySelectorAll("i.addClass");// event.target.childNodes[1];//document.querySelectorAll('.card');//event.target;//document.getElementById(event.target.id);
       console.log("firstCard " + firstCard);
       firstId = document.getElementById(event.target.id);
       console.log("firstId " + firstId);
@@ -51,7 +62,7 @@ $(".card").click(function() {
       console.log("addClass open show to firstId");
     }
     else {
-      secondCard = document.getElementsByClassName(".card");
+      secondCard = document.querySelectorAll("i.addClass");//document.getElementsByTagName("i");//event.target;//document.getElementById(event.target.id);//document.getElementsByClassName(".addCard");
       console.log("secondCard " + secondCard);
       secondId = document.getElementById(event.target.id);
       console.log("secondId " + secondId);
