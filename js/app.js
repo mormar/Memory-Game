@@ -1,13 +1,29 @@
 // Add id to cards
 const cardLenght = document.querySelectorAll('.card').length;
 
+let picture = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb",
+"fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
+console.log(picture);
+picture.sort(() => 0.5 - Math.random());
+console.log(picture);
+
+
+
 if( cardLenght != 0) {
   for(let idCounter = 0; idCounter < cardLenght; idCounter++) {
     $(".card.cursor-point"+idCounter).attr("id", idCounter);
     $(".card.cursor-point"+idCounter).next().addClass("cursor-point"+(idCounter+1));
     $(".card.cursor-point"+idCounter).removeClass("cursor-point"+idCounter);
+     let addElement = document.getElementById(idCounter);
+     console.log(document.getElementById(idCounter));
+     //let coscos = addElement.childNodes[1];
+     //console.log(addElement.childNodes[1]);
+     $(addElement).addClass(picture[idCounter]);
+    //console.log(coscos);
   }
 }
+
+
 
 // Correct Guess
 let number = 0;
@@ -27,7 +43,7 @@ $(".card").click(function() {
   if (number < 2) {
     number++;
     if(number === 1) {
-      firstCard = event.target.childNodes[1];
+      firstCard = document.getElementsByClassName(".card");
       console.log("firstCard " + firstCard);
       firstId = document.getElementById(event.target.id);
       console.log("firstId " + firstId);
@@ -35,7 +51,7 @@ $(".card").click(function() {
       console.log("addClass open show to firstId");
     }
     else {
-      secondCard = event.target.childNodes[1];
+      secondCard = document.getElementsByClassName(".card");
       console.log("secondCard " + secondCard);
       secondId = document.getElementById(event.target.id);
       console.log("secondId " + secondId);
@@ -44,7 +60,7 @@ $(".card").click(function() {
     }
 
     if(number === 2) {
-      if(firstCard.isEqualNode(secondCard)) {
+      if(firstCard === secondCard) {
         console.log("firstCard and secondCard are equal");
         console.log( "document.getElementById(event.target.id) " + document.getElementById(event.target.id));
         $(firstId).addClass("match");
@@ -62,7 +78,7 @@ $(".card").click(function() {
       }
       else {
         console.log("firstCard and secondCard are different");
-        if(!(firstCard.isEqualNode(secondCard))) {
+        if(!(firstCard === secondCard)) {
         $(firstId).addClass("wrong");
         $(secondId).addClass("wrong");
         setTimeout(turn , 500);
@@ -92,22 +108,6 @@ $(".restart").click(function() {
     $(".card").removeClass("match");
 });
 
-console.log(document.getElementById("0").childNodes[1]);
-console.log(document.getElementById("1").childNodes[1]);
-console.log(document.getElementById("2").childNodes[1]);
-console.log(document.getElementById("3").childNodes[1]);
-console.log(document.getElementById("4").childNodes[1]);
-console.log(document.getElementById("5").childNodes[1]);
-console.log(document.getElementById("6").childNodes[1]);
-console.log(document.getElementById("7").childNodes[1]);
-console.log(document.getElementById("8").childNodes[1]);
-console.log(document.getElementById("9").childNodes[1]);
-console.log(document.getElementById("10").childNodes[1]);
-console.log(document.getElementById("11").childNodes[1]);
-console.log(document.getElementById("12").childNodes[1]);
-console.log(document.getElementById("13").childNodes[1]);
-console.log(document.getElementById("14").childNodes[1]);
-console.log(document.getElementById("15").childNodes[1]);
 
 /*
  * Create a list that holds all of your cards
