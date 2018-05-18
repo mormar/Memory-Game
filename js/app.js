@@ -1,38 +1,26 @@
 // Add id to cards
 const cardLenght = document.querySelectorAll('.card').length;
 
-let picture = ['fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa-anchor', "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb",
-"fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
+let picture = ['fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa-anchor', 'fa fa-bolt', 'fa fa-cube', 'fa fa-leaf',
+'fa fa-bicycle', 'fa fa-bomb','fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa-anchor', 'fa fa-bolt', 'fa fa-cube',
+'fa fa-leaf', 'fa fa-bicycle', 'fa fa-bomb'];
 console.log(picture);
 picture.sort(() => 0.5 - Math.random());
 console.log(picture);
-
-
 
 if( cardLenght != 0) {
   for(let idCounter = 0; idCounter < cardLenght; idCounter++) {
     $(".card.cursor-point"+idCounter).attr("id", idCounter);
     $(".card.cursor-point"+idCounter).next().addClass("cursor-point"+(idCounter+1));
     $(".card.cursor-point"+idCounter).removeClass("cursor-point"+idCounter);
-     ////let addElement = document.getElementById(idCounter);
      console.log(document.getElementById(idCounter));
-     //let coscos = addElement.childNodes[1];
-     //console.log(addElement.childNodes[1]);
-     ////$(addElement).addClass(picture[idCounter]);
-    //console.log(coscos);
-    //$(".addCard"+idCounter).next().addClass(picture[idCounter+1]);
-    //$(".addCard"+idCounter).removeClass(picture[idCounter]);
-
   }
 }
 let pictureCounter;
 for(pictureCounter = 0; pictureCounter < cardLenght; pictureCounter++){
-  ////$(".addCard"+pictureCounter).attr("id",picture[pictureCounter]);
   $(".addCard"+pictureCounter).addClass(picture[pictureCounter]);
   $(".addCard"+pictureCounter).next().addClass("addCard"+(pictureCounter+1));
-  ////$(".addCard"+pictureCounter).text(picture[pictureCounter]);
   $(".addCard"+pictureCounter).removeClass("addCard"+pictureCounter);
-  //$(".addCard"+pictureCounter).removeClass(".addCard"+pictureCounter);
   console.log(picture[pictureCounter]);
 }
 
@@ -56,7 +44,6 @@ $(".card").click(function(event)
     number++;
     if(number === 1) {
       firstCard = event.target.childNodes[1];
-      //firstCard = document.getElementById('fa fa-diamond');//document.querySelectorAll(".addCard[pictureCounter]").textContent;// event.target.childNodes[1];//document.querySelectorAll('.card');//event.target;//document.getElementById(event.target.id);
       console.log("firstCard " + firstCard);
       firstId = document.getElementById(event.target.id);
       console.log("firstId " + firstId);
@@ -65,7 +52,6 @@ $(".card").click(function(event)
     }
     else {
       secondCard = event.target.childNodes[1];
-      //secondCard = document.getElementById('fa fa-diamond');//.textContent;//document.getElementsByTagName("i");//event.target;//document.getElementById(event.target.id);//document.getElementsByClassName(".addCard");
       console.log("secondCard " + secondCard);
       secondId = document.getElementById(event.target.id);
       console.log("secondId " + secondId);
@@ -74,7 +60,6 @@ $(".card").click(function(event)
     }
 
     if(number === 2) {
-      //if(firstCard.isEqualNode(secondCard)) {
       if(firstCard.isEqualNode(secondCard)) {
         console.log("firstCard and secondCard are equal");
         console.log( "document.getElementById(event.target.id) " + document.getElementById(event.target.id));
