@@ -30,6 +30,7 @@ let number = 0;
 let firstCard = "";
 let secondCard = "";
 let moveCounter = 0;
+let correctChoice = 0;
 
 function turn(){
   $(firstId).removeClass("open show");
@@ -38,23 +39,23 @@ function turn(){
   $(secondId).removeClass("wrong");
 }
 
-$(".card").click(function(event)
-{
+$(".card").click(function(event) {
+  // Star rating
   if(moveCounter < 12) {
-    console.log("less than 12 moves");
+    //console.log("less than 12 moves");
   }
   else if(moveCounter < 18) {
-    console.log("less than 18 moves");
+    //console.log("less than 18 moves");
     $("#star3").removeClass();
     $("#star3").addClass("fa fa-star-o");
   }
   else if(moveCounter < 24) {
-    console.log("less than 24 moves");
+    //console.log("less than 24 moves");
     $("#star2").removeClass();
     $("#star2").addClass("fa fa-star-o");
   }
   else {
-    console.log("More then 24!");
+    //console.log("More then 24!");
     $("#star1").removeClass();
     $("#star1").addClass("fa fa-star-o");
   }
@@ -95,7 +96,33 @@ $(".card").click(function(event)
         moveCounter++;
         //console.log(moveCounter);
         $(".moves").html(moveCounter);
+        correctChoice++;
+        //console.log(correctChoice);
+        // If all cards correctChoice
+      if(correctChoice === 8) {
+        $("#myPopup").addClass("main-popup");
+        $("#content").addClass("content");
+        $("#moves").html("Moves: " + moveCounter);
+        if(moveCounter >= 12 & moveCounter <= 18) {
+          $("#star6").removeClass();
+          $("#star6").addClass("fa fa-star-o");
+        }
+        else if(moveCounter >= 18 & moveCounter <= 24) {
+          $("#star6").removeClass();
+          $("#star5").removeClass();
+          $("#star6").addClass("fa fa-star-o");
+          $("#star5").addClass("fa fa-star-o");
+        }
+        else if(moveCounter >= 24) {
+          $("#star6").removeClass();
+          $("#star5").removeClass();
+          $("#star4").removeClass();
+          $("#star6").addClass("fa fa-star-o");
+          $("#star5").addClass("fa fa-star-o");
+          $("#star4").addClass("fa fa-star-o");
+        }
       }
+    }
       else {
         //console.log("firstCard and secondCard are different");
         if(!(firstCard.isEqualNode(secondCard))) {
@@ -117,6 +144,7 @@ $(".card").click(function(event)
 $(".restart").click(function() {
     moveCounter = 0;
     number = 0;
+    correctChoice = 0;
     firstCard = "";
     secondCard = "";
     //console.log("restart moveCounter = " + moveCounter);
@@ -146,4 +174,33 @@ $(".restart").click(function() {
     $("#star1").addClass("fa fa-star");
     $("#star2").addClass("fa fa-star");
     $("#star3").addClass("fa fa-star");
+});
+
+$("#play").click(function() {
+    moveCounter = 0;
+    number = 0;
+    correctChoice = 0;
+    firstCard = "";
+    secondCard = "";
+    $(".moves").html(moveCounter);
+    $(".card").removeClass("open show");
+    $(".card").removeClass("match");
+    randomSort = picture.sort(() => 0.5 - Math.random());
+    for(let deletId = 0; deletId < cardLenght; deletId++) {
+    $("#"+deletId).children().removeClass();
+    $("#"+deletId).children().addClass("addCard"+deletId);
+    }
+    for(pictureCounter = 0; pictureCounter < cardLenght; pictureCounter++){
+      $(".addCard"+pictureCounter).addClass(picture[pictureCounter]);
+      $(".addCard"+pictureCounter).next().addClass("addCard"+(pictureCounter+1));
+      $(".addCard"+pictureCounter).removeClass("addCard"+pictureCounter);
+    }
+    $("#star1").removeClass();
+    $("#star2").removeClass();
+    $("#star3").removeClass();
+    $("#star1").addClass("fa fa-star");
+    $("#star2").addClass("fa fa-star");
+    $("#star3").addClass("fa fa-star");
+    $("#myPopup").removeClass("main-popup");
+    $("#content").removeClass("content");
 });

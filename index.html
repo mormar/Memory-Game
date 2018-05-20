@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Matching Game</title>
     <meta name="description" content="">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
@@ -79,6 +81,25 @@
                 <i class="addCard15"></i>
             </li>
         </ul>
+    </div>
+
+    <div id=myPopup class="">
+      <div id=content class="">
+        <h2 class="result-title">Congratulations! You Won!</h2>
+        <div class="result">
+          <p id="moves" class="">Moves: </p>
+          <p id="time">Time: </p>
+          <section class="win-panel">
+          	<ul class="stars">Starts:
+          		<li><i class="fa fa-star" id="star4"></i></li>
+          		<li><i class="fa fa-star" id="star5"></i></li>
+          		<li><i class="fa fa-star" id="star6"></i></li>
+          	</ul>
+          </section>
+          <button type="button" name="button" class="button-play" id="play"> Play </button>
+        </div>
+
+      </div>
     </div>
 
     <script src="js/jquery-3.3.1.min.js"></script>
