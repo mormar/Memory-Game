@@ -9,6 +9,22 @@ let randomSort = picture.sort(() => 0.5 - Math.random());
 //console.log(picture);
 //console.log(randomSort);
 
+let sec = 0;
+let min = 0;
+let measuredTime = 0;
+let mesure;
+
+function startMesureTimer() {
+  mesure = setInterval(function() {
+    measuredTime = "Time: " + min +" mins "+ sec + " secs";
+    sec++;
+      if(sec === 60) {
+        min++;
+        sec = 0;
+      }
+  },1000);
+}
+
 if( cardLenght != 0) {
   for(let idCounter = 0; idCounter < cardLenght; idCounter++) {
     $(".card.cursor-point"+idCounter).attr("id", idCounter);
@@ -39,6 +55,7 @@ function turn(){
   $(secondId).removeClass("wrong");
 }
 
+startMesureTimer();
 $(".card").click(function(event) {
   // Star rating
   if(moveCounter < 12) {
@@ -100,6 +117,9 @@ $(".card").click(function(event) {
         //console.log(correctChoice);
         // If all cards correctChoice
       if(correctChoice === 8) {
+        document.getElementById("playerTime").innerHTML = measuredTime;;
+        sec = 0;
+        min = 0;
         $("#myPopup").addClass("main-popup");
         $("#content").addClass("content");
         $("#moves").html("Moves: " + moveCounter);
@@ -174,6 +194,8 @@ $(".restart").click(function() {
     $("#star1").addClass("fa fa-star");
     $("#star2").addClass("fa fa-star");
     $("#star3").addClass("fa fa-star");
+    sec = 0;
+    min = 0;
 });
 
 $("#play").click(function() {
@@ -203,4 +225,6 @@ $("#play").click(function() {
     $("#star3").addClass("fa fa-star");
     $("#myPopup").removeClass("main-popup");
     $("#content").removeClass("content");
+    sec = 0;
+    min = 0;
 });
