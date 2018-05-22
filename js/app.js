@@ -117,6 +117,7 @@ $(".card").click(function(event) {
         //console.log(correctChoice);
         // If all cards correctChoice
       if(correctChoice === 8) {
+        $("#myPopup").removeClass("none-display");
         document.getElementById("playerTime").innerHTML = measuredTime;;
         sec = 0;
         min = 0;
@@ -194,6 +195,9 @@ $(".restart").click(function() {
     $("#star1").addClass("fa fa-star");
     $("#star2").addClass("fa fa-star");
     $("#star3").addClass("fa fa-star");
+    $("#myPopup").removeClass("main-popup");
+    $("#content").removeClass("content");
+    $("#myPopup").addClass("none-display");
     sec = 0;
     min = 0;
 });
@@ -225,6 +229,7 @@ $("#play").click(function() {
     $("#star3").addClass("fa fa-star");
     $("#myPopup").removeClass("main-popup");
     $("#content").removeClass("content");
+    $("#myPopup").addClass("none-display");
     sec = 0;
     min = 0;
 });
