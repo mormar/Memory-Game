@@ -124,11 +124,11 @@ $(".card").click(function(event) {
         $("#myPopup").addClass("main-popup");
         $("#content").addClass("content");
         $("#moves").html("Moves: " + moveCounter);
-        if(moveCounter >= 12 & moveCounter <= 18) {
+        if(moveCounter > 12 & moveCounter <= 18) {
           $("#star6").removeClass();
           $("#star6").addClass("fa fa-star-o");
         }
-        else if(moveCounter >= 18 & moveCounter <= 24) {
+        else if(moveCounter > 18 & moveCounter <= 24) {
           $("#star6").removeClass();
           $("#star5").removeClass();
           $("#star6").addClass("fa fa-star-o");
@@ -200,6 +200,7 @@ $(".restart").click(function() {
     $("#myPopup").addClass("none-display");
     sec = 0;
     min = 0;
+    $(".card").removeClass("wrong");
 });
 
 $("#play").click(function() {
