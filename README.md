@@ -20,3 +20,7 @@ First commit is the starter code for _all_ Udacity students.
 
 ## Website
 https://mormar.github.io/Memory-Game/
+
+## Dependecies
+[jQuery](https://jquery.com)<br/>
+[FontAwesomeIcons](https://fontawesome.com)
