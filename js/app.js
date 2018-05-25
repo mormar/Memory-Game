@@ -13,9 +13,11 @@ let sec = 0;
 let min = 0;
 let measuredTime = 0;
 let mesure;
+let gameTime = document.querySelector(".lifeTime");
 
 function startMesureTimer() {
   mesure = setInterval(function() {
+    gameTime.innerHTML = "Time: " + min +" mins "+ sec + " secs";
     measuredTime = "Time: " + min +" mins "+ sec + " secs";
     sec++;
       if(sec === 60) {
@@ -24,6 +26,7 @@ function startMesureTimer() {
       }
   },1000);
 }
+
 
 if( cardLenght != 0) {
   for(let idCounter = 0; idCounter < cardLenght; idCounter++) {
@@ -56,6 +59,7 @@ function turn(){
 }
 
 startMesureTimer();
+
 $(".card").click(function(event) {
   // Star rating
   if(moveCounter < 12) {
@@ -118,7 +122,7 @@ $(".card").click(function(event) {
         // If all cards correctChoice
       if(correctChoice === 8) {
         $("#myPopup").removeClass("none-display");
-        document.getElementById("playerTime").innerHTML = measuredTime;;
+        document.getElementById("playerTime").innerHTML = measuredTime;
         sec = 0;
         min = 0;
         $("#myPopup").addClass("main-popup");

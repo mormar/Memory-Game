@@ -92,7 +92,7 @@ body {
 
 .score-panel {
     text-align: left;
-    width: 15rem;
+    width: 30rem;
     margin-bottom: 0.625rem;
 }
 
@@ -173,6 +173,10 @@ body {
     margin: 0;
 }
 
+.lifeTime {
+    padding-left: 2rem;
+}
+
 /**/
 @media screen and (max-width: 767px) {
 
@@ -190,6 +194,7 @@ body {
 
   .score-panel {
       margin-bottom: 1rem;
+      width: 20rem;
   }
 
   .deck {
@@ -215,6 +220,10 @@ body {
       padding-top: 5rem;
   }
 
+  .lifeTime {
+      padding-left: 0;
+  }
+
 }
 @media screen and (min-width: 768px) and (max-width: 1099px){
 
@@ -231,7 +240,7 @@ body {
   }
 
   .score-panel {
-      width: 25rem;
+      width: 30rem;
       margin-bottom: 1.25rem;
       font-size: 1.25rem;
   }
@@ -263,7 +272,7 @@ body {
   }
 
   .main-popup {
-      padding-top: 10rem;
+      padding-top: 9rem;
   }
 
   .result-title {
@@ -297,7 +306,7 @@ body {
   }
 
   .score-panel {
-      width: 22rem;
+      width: 30rem;
       margin-bottom: 1.25rem;
       font-size: 1.25rem;
   }
